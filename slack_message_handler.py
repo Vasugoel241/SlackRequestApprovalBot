@@ -192,3 +192,20 @@ class Slack_Message:
             return CommonResponseHelper.send_error_response(str(e.response["error"])) 
         logger.info(choice)
         return choice
+    
+    # def verify_request(request_body, timestamp, slack_signature):
+        
+    #     if abs(time.time() - float(timestamp)) > 60 * 5:
+    #         logger.error("Unauthorized Request")
+    #         return False
+        
+    #     sig_basestring = 'v0:' + timestamp + ':' + request_body
+    #     slack_signing_secret = Config.signing_secret
+    #     my_signature = 'v0=' + hmac.new(bytes(slack_signing_secret, 'utf-8'),bytes(sig_basestring, 'utf-8'),hashlib.sha256).hexdigest()
+    #     logger.info("Comparing the Signatures")
+    #     if hmac.compare_digest(my_signature, slack_signature):
+    #         logger.info("Valid Slack Request")
+    #         return True
+    #     else:
+    #         logger.info("Unauthorized Request")
+    #         return False
